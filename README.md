@@ -50,4 +50,4 @@ a data structure type
                                           ░░░░▓▓▓▓░░                                    
 
 ```                                                        
-From Source[`computer`](https://textart.sh/)
+[`computer, From Source`](https://textart.sh/)
