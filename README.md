@@ -1,4 +1,4 @@
-# decoy
+# DECOY
  - <s>add</s>
  - detele
  - move
@@ -13,7 +13,19 @@
 +--------------------+
 ```
 
-# __foreach_null
+Alls, it's a macro define
+
+```c
+#define DECOY(opt, d, ...)
+
+DECOY(add, decoier);
+DECOY(add, decoier);
+DECOY(delete, decoier, 10, FALSE);
+DECOY(delete, decoier, .key=21, .sort=TRUE);
+```
+
+## Made it
+### __foreach_null
 ```c
 /* HOOK for pointer of decoier */
 typedef void (*HOOK);
@@ -55,4 +67,12 @@ static inline void __foreach_null(decoy *__d, struct __decoier_hook *h, int *k)
 }
 
 ...
+```
+
+# Example
+```
+~$ git clone https://github.com/eqpoqpe/decoy.git
+~$ cd decoy
+~$ make
+~$ # You can modify example/demo.c
 ```
