@@ -5,6 +5,14 @@
  - insert
  - patch
 
+```
++--------------------+
+|      +-------+     |
+| prev | K | V | next|
+|      +-------+     |
++--------------------+
+```
+
 # __foreach_null
 ```c
 /* HOOK for pointer of decoier */
