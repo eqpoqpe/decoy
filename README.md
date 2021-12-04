@@ -17,7 +17,8 @@ Alls, it's a macro define
 
 ```c
 #define DECOY(opt, d, ...)
-
+```
+```c
 DECOY(add, decoier);
 DECOY(add, decoier);
 DECOY(delete, decoier, 10, FALSE);
