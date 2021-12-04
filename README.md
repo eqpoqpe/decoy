@@ -1,4 +1,4 @@
-# DECOY
+# ***DECOY***
 Alls, it's a macro define
 
 ```c
@@ -18,7 +18,7 @@ DECOY(delete, decoier, 10, FALSE);
 DECOY(delete, decoier, .key=21, .sort=TRUE);
 ```
 
-Functions list
+*`Functions list`*
 --------------
  - <s>add</s>
  - detele
@@ -26,7 +26,7 @@ Functions list
  - insert
  - patch
 
-# Example
+# *`Example`*
 ```
 ~$ git clone https://github.com/eqpoqpe/decoy.git
 ~$ cd decoy
