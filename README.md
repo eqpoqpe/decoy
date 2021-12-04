@@ -45,4 +45,6 @@ static inline void __foreach_null(decoy *__d, struct __decoier_hook *h, int *k)
         *k =__d->key + NEXT;
     }
 }
+
+...
 ```
