@@ -37,7 +37,11 @@ struct __decoier_hook {
 
 ...
 
-static inline void __foreach_null(decoy *__d, struct __decoier_hook *h, int *k)
+static inline void __foreach_null( \
+    decoy *__d,
+    struct __decoier_hook *h,
+    int *k
+)
 {
     decoy *temp;
     decoy *prev;
