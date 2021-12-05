@@ -12,6 +12,8 @@ Alls, it's a macro define
 +--------------------+
 ```
 ```c
+decoy decoier = DECOY_HEAD;
+
 DECOY(add, decoier);
 DECOY(add, decoier);
 DECOY(delete, decoier, 10, FALSE);
