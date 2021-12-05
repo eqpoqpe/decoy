@@ -1,5 +1,5 @@
 CC=gcc
-TARGET=-Wall -g
+CFLAG=-Wall -g
 BIN_FILE=decoy_dome
 
 run:
