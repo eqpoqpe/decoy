@@ -2,3 +2,5 @@ test/*
 build/*
 ./prototype
 ./demo
+*.o
+*.a

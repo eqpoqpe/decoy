@@ -28,7 +28,7 @@
 #define NEXT 1
 #define SUB -1
 
-enum DECOY_OPT {
+enum __DECOY_OPT {
     add,    /**
              * add a new to endline of list
              */
@@ -41,18 +41,35 @@ enum DECOY_OPT {
             */
 };
 
-enum __DECOY_SORT {
+enum __DEL_SORT {
     FALSE,
     TRUE,
 };
 
-struct __DECOY_ARG {
-    int key;
-    enum __DECOY_SORT sort;
-};
-
 /* Don't used it to function return_type */
 typedef void (*ANY);
+
+// public decoy arg
+struct __PUBLIC_DECOY_ARG {
+    int key;
+    enum __DEL_SORT sort;
+
+    // set data
+    void (*set)(ANY, ANY);
+    ANY data_ptr;
+};
+
+// private struct type
+struct __DECOY_ADD_ARG {
+    void (*set)(ANY, ANY);
+    ANY data_ptr;
+};
+
+// private struct type
+struct __DECOY_DEL_ARG {
+    int key;
+    enum __DEL_SORT sort;
+};
 
 struct __decoy {
     int key;
@@ -84,35 +101,43 @@ struct __decoier_hook {
     HOOK_HEAD next;
 };
 
-extern void __foreach_null(decoy *, struct __decoier_hook *, int *);
+#pragma GCC diagnostic ignored "-Wunused-function"
+static struct __decoy * __foreach_key(decoy *, int);
+static void __foreach_null(decoy *, struct __decoier_hook *, int *);
+static inline void __inline_sort(struct __decoy *);
+
 extern void __setup_next_decoier(struct __decoier_hook *, int);
-extern void __add_decoy(decoy *);
+extern void __add_decoy(decoy *, struct __DECOY_ADD_ARG *);
+extern void __del_decoy(decoy *, struct __DECOY_DEL_ARG *);
 
 /**
  * DECOY
  * 
  * add, delete, move, insert, patch
+ * 
+ * __VA_ARGS__
  */
 #define DECOY(opt, d, ...) do { \
-    struct __DECOY_ARG __new = {__VA_ARGS__}; \
+    struct __PUBLIC_DECOY_ARG __add = {__VA_ARGS__}; \
     switch (opt) { \
     case add: \
-        __add_decoy(&d); \
+        __add_decoy(&d, (struct __DECOY_ADD_ARG *) &__add); \
         break; \
     case delete: \
+        __del_decoy(&d, (struct __DECOY_DEL_ARG *) &__add); \
         break; \
     case move: \
         break; \
     case insert: \
         break; \
-    case patch: \
-        break; \
     } \
-} while(0);
+    } while(0); \
+
 
 #define DECOY_HEAD  { \
     .length = 0, \
     .key = HEAD, \
+    .data = NULL, \
     .prev = NULL, \
     .next = NULL, \
 }
