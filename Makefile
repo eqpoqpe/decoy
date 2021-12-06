@@ -1,5 +1,6 @@
-EXEC = libdecoy.a
-DEMO = demo
+OUT = build
+EXEC = $(OUT)/libdecoy.a
+DEMO = $(OUT)/demo
 .PHONY: all
 all: $(EXEC) $(DEMO)
 
@@ -17,6 +18,7 @@ deps := $(OBJS:%.o=.%.o.d)
 	$(CC) $(CFLAGS) -c -MMD -MF .$@.d -o $@ $<
 
 $(EXEC): $(OBJS)
+	@mkdir -p $(OUT)
 	@ar -cvq $@ src/*.o
 
 $(DEMO): $(OBJS)
