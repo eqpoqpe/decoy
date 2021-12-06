@@ -7,11 +7,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// #include "../include/decoy.h"
+#include "decoy.h"
 
 int main()
 {
-    // decoy decoier = DECOY_HEAD;
+    decoy decoier = DECOY_HEAD;
     // decoy user;
     // decoy slave;
 
@@ -23,7 +23,8 @@ int main()
     // slave.prev = &user;
     // slave.next = NULL;
 
-    // printf("%p\n", &(decoier));
+    printf("%p\n", &(decoier));
+    printf("%d\n", decoier.key);
 
     // DECOY(add, decoier);
     // DECOY(add, decoier);
@@ -45,7 +46,6 @@ int main()
     // printf("%d\n", decoier.next->prev->next->prev->next->next->prev->key);
 
     // printf("%d\n", slave.next->prev->key);
-    printf("DOME\n");
 
     return 0;
 }

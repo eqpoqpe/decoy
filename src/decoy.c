@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "decoy.h"
 
 /**
@@ -12,14 +15,14 @@
  */
 extern void __foreach_null(decoy *__d, struct __decoier_hook *h, int *k)
 {
-    decoy *temp;
-    decoy *prev;
+    struct __decoy *temp;
+    struct __decoy *prev;
 
     if (__d->next != NULL) {
-        temp = __d;
+        temp = __d->next;
+        prev = (struct __decoy *) __d;
 
-        // [0]->[1]->[2]
-        // temp must pointer to [2]'s next
+        // started from [1] [2]
         while (temp->next != NULL) {
 
             // prev to last second
@@ -41,14 +44,16 @@ extern void __foreach_null(decoy *__d, struct __decoier_hook *h, int *k)
 
 extern void __setup_next_decoier(struct __decoier_hook *h, int k)
 {
-    decoy *temp;
+    struct __decoy *temp;
 
-    temp = (decoy *) malloc(sizeof(decoy));
+    temp = (struct __decoy *) malloc(sizeof(struct __decoy));
     temp->key = k;
-    temp->prev = (decoy *) h->prev;
+    temp->prev = (struct __decoy *) h->prev;
     temp->next = NULL;
-    *((decoy **) h->next) = temp;
+    *((struct __decoy **) h->next) = temp;
 }
+
+// #pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 
 // __d's key must be HEAD
 extern void __add_decoy(decoy *__d)
@@ -60,20 +65,19 @@ extern void __add_decoy(decoy *__d)
 
     // temp for next decoier
     // checked in __foreach_null
-    decoy *temp;
     struct __decoier_hook hook;
 
     // for next decoier
     int key;
 
     // found the pointer of endline for next
-    temp = (decoy *) malloc(sizeof(decoy));
+    // temp = (decoy *) malloc(sizeof(decoy));
 
     __foreach_null(__d, &hook, &key);
     __setup_next_decoier(&hook, key);
 }
 
-extern void __delete_decoy()
+extern void __delete_decoy(void *__d)
 {
-
+    free(__d);
 }

@@ -25,13 +25,14 @@ DECOY(delete, decoier, .key=21, .sort=TRUE);
  - <s>add</s>
  - detele
  - move
+   - sort
  - insert
- - patch
+ - mapping
 
 # *`Example`*
 ```
 ~$ git clone https://github.com/eqpoqpe/decoy.git
 ~$ cd decoy
-~$ make
+~$ make check
 ~$ # You can modify example/demo.c
 ```
