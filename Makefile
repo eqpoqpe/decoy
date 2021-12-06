@@ -1,7 +1,32 @@
-CC=gcc
-CFLAG=-Wall -g
-BIN_FILE=decoy_dome
+EXEC = libdecoy.a
+DEMO = demo
+.PHONY: all
+all: $(EXEC) $(DEMO)
 
-run:
-	$(CC) -o $(BIN_FILE) ./example/demo.c -I ./include
-	./$(BIN_FILE)
+CC ?= gcc
+CFLAGS = -std=c11 -Wall -g
+
+OBJS := \
+	example/demo.o \
+	src/decoy.o \
+	src/decmap.o \
+	src/setval.o
+
+deps := $(OBJS:%.o=.%.o.d)
+
+./src%.o: ./src%.c
+	$(CC) $(CFLAGS) -c -MMD -MF .$@.d -o $@ $< -I ./include
+
+$(EXEC): $(OBJS)
+	@ar -cvq $@ src/*.o
+
+$(DEMO): $(OBJS)
+	$(CC) -o $@ $^ -I include
+
+check: $(DEMO)
+	@./$(DEMO)
+
+clean:
+	$(RM) $(EXEC) $(DEMO) $(OBJS) $(deps)
+
+-include $(deps)

@@ -7,14 +7,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "decoy.h"
-
-void push(decoy *);
-void deep_pointer(decoy *);
+// #include "../include/decoy.h"
 
 int main()
 {
-    decoy decoier = DECOY_HEAD;
+    // decoy decoier = DECOY_HEAD;
     // decoy user;
     // decoy slave;
 
@@ -28,10 +25,10 @@ int main()
 
     // printf("%p\n", &(decoier));
 
-    DECOY(add, decoier);
-    DECOY(add, decoier);
-    DECOY(delete, decoier, 10, FALSE);
-    DECOY(delete, decoier, 21, .sort=TRUE);
+    // DECOY(add, decoier);
+    // DECOY(add, decoier);
+    // DECOY(delete, decoier, 10, FALSE);
+    // DECOY(delete, decoier, 21, .sort=TRUE);
 
     // printf("%d\n", decoier.next->key);
     // DECOY(add, decoier);
@@ -48,6 +45,7 @@ int main()
     // printf("%d\n", decoier.next->prev->next->prev->next->next->prev->key);
 
     // printf("%d\n", slave.next->prev->key);
+    printf("DOME\n");
 
     return 0;
 }
