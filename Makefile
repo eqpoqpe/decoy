@@ -1,4 +1,4 @@
-OUT = build
+OUT = target
 EXEC = $(OUT)/libdecoy.a
 DEMO = $(OUT)/demo
 .PHONY: all
