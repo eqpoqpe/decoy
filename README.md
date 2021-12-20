@@ -23,10 +23,10 @@ DECOY(delete, decoier, .key=21, .sort=TRUE);
 *`Functions list`*
 --------------
  - <s>add</s>
- - detele
- - move
-   - sort
+ - <s>detele</s>
+   - <s>sort</s>
  - insert
+   - move
  - mapping
 
 # *`Example`*

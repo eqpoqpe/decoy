@@ -1,5 +1,5 @@
 /**
- * setval.h - Decoy
+ * setdata.c - Decoy
  * 
  * SetData to decoier
  */

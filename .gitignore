@@ -3,4 +3,6 @@ build/*
 ./prototype
 ./demo
 *.o
+*.*.d
+dev-*.txt
 *.a

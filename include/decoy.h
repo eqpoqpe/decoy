@@ -126,13 +126,10 @@ extern void __del_decoy(decoy *, struct __DECOY_DEL_ARG *);
     case delete: \
         __del_decoy(&d, (struct __DECOY_DEL_ARG *) &__add); \
         break; \
-    case move: \
-        break; \
     case insert: \
         break; \
     } \
-    } while(0); \
-
+} while(0);
 
 #define DECOY_HEAD  { \
     .length = 0, \

@@ -128,14 +128,14 @@ extern void __del_decoy(decoy *__d, struct __DECOY_DEL_ARG *args)
     if (__d->prev == NULL && __d->key == HEAD) {
         if (args->key != HEAD) {
             res = __foreach_key(__d, args->key);
+
             if (res != NULL) {
                 if (res->data != NULL)  free(res->data);
                 res->prev->next = res->next;
                 res->next->prev = res->prev;
-
-                if (args->sort) __inline_sort(NULL);
                 free(res);
             }
+            if (args->sort) __inline_sort(NULL);
         } else {
             if (__d->data != NULL) free(__d->data);
         }
