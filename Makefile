@@ -1,33 +1,36 @@
 OUT = target
-EXEC = $(OUT)/libdecoy.a
-DEMO = $(OUT)/demo
+LIB_OUT = $(OUT)
+DEBUG_OUT = $(OUT)/debug/bin
+LIB = $(LIB_OUT)/libdecoy.a
+DEBUG = $(DEBUG_OUT)/demo
 .PHONY: all
-all: $(EXEC) $(DEMO)
+all: $(LIB) $(DEBUG)
 
 CC ?= gcc
 CFLAGS = -std=c11 -Wall -g -I include
 
 OBJS := \
 	example/demo.o \
-	src/decoy.o \
-	src/extension/setdata.o
+	src/decoy.o
 
 deps := $(OBJS:%.o=.%.o.d)
 
 .%.o: .%.c
 	$(CC) $(CFLAGS) -c -MMD -MF .$@.d -o $@ $<
 
-$(EXEC): $(OBJS)
-	@mkdir -p $(OUT)
-	@ar -cvq $@ src/*.o src/extension/*.o
+$(LIB): $(OBJS)
+	@mkdir -p $(LIB_OUT)
+	@ar -cvq $@ src/*.o
+	@cp include/decoy.h $(LIB_OUT)
 
-$(DEMO): $(OBJS)
+$(DEBUG): $(OBJS)
+	@mkdir -p $(DEBUG_OUT)
 	$(CC) $(CFLAGS) -o $@ $^
 
-check: $(DEMO)
-	@./$(DEMO)
+check: $(DEBUG)
+	@./$(DEBUG)
 
 clean:
-	$(RM) $(EXEC) $(DEMO) $(OBJS) $(deps)
+	$(RM) $(LIB) $(DEBUG) $(OBJS) $(deps)
 
 -include $(deps)
