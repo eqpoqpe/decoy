@@ -1,8 +1,9 @@
-test/*
-build/*
-./prototype
-./demo
+test
+build
+prototype
+demo
 *.o
 *.*.d
-dev-*.txt
+@dev-*.txt
 *.a
+target
