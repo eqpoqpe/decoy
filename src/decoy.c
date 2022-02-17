@@ -97,17 +97,7 @@ extern void __add_decoy(decoy *__d, struct __DECOY_ADD_ARG *args)
     __setup_next_decoier(&hook, key);
 
     // printf("%p\n", args->set);
-    if (args->set != NULL) {
-
-         ;;;;;;;;
-        ;;      ;;
-        ;;
-        ;;;;;;;;;
-        ;;      ;;
-        ;;      ;;
-         ;;;;;;;;
-        (args->set)((ANY) __d, args->data_ptr);
-    }
+    if (args->set != NULL)  (args->set)((ANY) __d, args->data_ptr);
 }
 
 /**
