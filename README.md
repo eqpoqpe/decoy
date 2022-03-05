@@ -4,7 +4,7 @@
 
 `Author` Ryan Martin
 
-`Contact` <eqpoqpe@gmail.com>
+`Contact` eqpoqpe at gmail dot com
 <hr>
 
 # ***DECOY donald***
