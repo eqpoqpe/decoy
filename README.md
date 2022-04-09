@@ -29,15 +29,6 @@ DECOY(delete, decoier, 10, FALSE);
 DECOY(delete, decoier, .key=21, .sort=TRUE);
 ```
 
-*`Functions list`*
---------------
- - <s>add</s>
- - <s>detele</s>
-   - <s>sort</s>
- - insert
-   - move
- - mapping
-
 # *`Example`*
 ```
 ~$ git clone https://github.com/eqpoqpe/decoy.git
