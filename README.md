@@ -1,12 +1,3 @@
-***Open Source Project***
-
-[]()
-
-`Author` Ryan Martin
-
-`Contact` eqpoqpe at gmail dot com
-<hr>
-
 # ***DECOY donald***
 Alls, it's a macro define
 
@@ -29,7 +20,7 @@ DECOY(delete, decoier, 10, FALSE);
 DECOY(delete, decoier, .key=21, .sort=TRUE);
 ```
 
-# *`Example`*
+# *Example*
 ```
 ~$ git clone https://github.com/eqpoqpe/decoy.git
 ~$ cd decoy
