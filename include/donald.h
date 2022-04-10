@@ -1,9 +1,9 @@
 /**
  * donald.h
  * 
- * A loop linked list-like
+ * A loop_linked_list-like
  * 
- * (c) Copyright 2021 Ryan Martin
+ * (c) Copyright 2021-2022 Ryan Martin
  */
 
 /**
