@@ -1,9 +1,13 @@
 /**
  * decoy.h - Decoy
- * 
- * Naive Version linked list
- * 
- * (c) Copyright 2021 Ryan Martin
+ *  _____  ______ _____ ______     __
+ * |  __ \|  ____/ ____/ __ \ \   / /
+ * | |  | | |__ | |   | |  | \ \_/ /
+ * | |  | |  __|| |   | |  | |\   /
+ * | |__| | |___| |___| |__| | | |
+ * |_____/|______\_____\____/  |_|
+ *
+ * Copyright (c) 2021 Ryan Martin
  */
 
 #ifndef _DECOY_H
