@@ -20,10 +20,3 @@ DECOY(delete, decoier, 10, FALSE);
 DECOY(delete, decoier, .key=21, .sort=TRUE);
 ```
 
-# *Example*
-```
-~$ git clone https://github.com/eqpoqpe/decoy.git
-~$ cd decoy
-~$ make check
-~$ # You can modify example/demo.c
-```
