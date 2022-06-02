@@ -1,5 +1,0 @@
-cc -std=c11 -Wall -g -I include   -c -o example/demo.o example/demo.c
-cc -std=c11 -Wall -g -I include   -c -o src/decoy.o src/decoy.c
-cc -std=c11 -Wall -g -I include   -c -o src/extension/setval.o src/extension/setval.c
-a - src/decoy.o
-cc -std=c11 -Wall -g -I include -o demo example/demo.o src/decoy.o src/extension/setval.o
